@@ -1,0 +1,41 @@
+#!/usr/bin/env fish
+
+set scriptDir (string replace -r "^\." (pwd) (dirname (readlink -m (status -f))))
+
+function down
+    #down the last running theme
+    if test -f "/tmp/leftwm-theme-down"
+        /tmp/leftwm-theme-down
+        rm /tmp/leftwm-theme-down
+    end
+    ln -s $scriptDir/down /tmp/leftwm-theme-down
+end
+
+function startCompton
+    compton --config $scriptDir/compton.config &
+end
+
+function setBackground
+    feh -B black --bg-fill $scriptDir/assets/h-heyerlein-riYdn15o96U-unsplash.jpg $scriptDir/assets/h-heyerlein-riYdn15o96U-unsplash.jpg
+end
+
+function startPolybar
+    # TODO: dynamic
+    env MONITOR=eDP-1-1 polybar -c $scriptDir/polybar.config mainbar &
+end
+
+function loadTheme -a themeFile
+    echo "LoadTheme $scriptDir/theme.toml" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
+end
+
+function themeKitty
+    kitty @ set-colors -a -c $scriptDir/kitty/kitty.config
+end
+
+down
+
+startCompton
+startPolybar
+loadTheme
+themeKitty
+setBackground
