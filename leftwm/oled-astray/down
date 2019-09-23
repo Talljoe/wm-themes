@@ -1,10 +1,7 @@
-#!/usr/bin/env fish
+#! /usr/bin/env sh
+# vim: ts=2:sw=2:et:ft=sh
 
-set scriptDir (string replace -r "^\." (pwd) (dirname (readlink -m (status -f))))
+REALNAME="$(readlink -m "$0")"
+export SCRIPTPATH="$(dirname "$REALNAME")"
 
-feh -B black --bg-tile $scriptDir/assets/down.png
-
-echo "UnloadTheme" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
-
-pkill compton 
-pkill polybar
+$SCRIPTPATH/scripts/$(basename "$REALNAME").fish $SCRIPTPATH

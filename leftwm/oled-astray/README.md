@@ -4,13 +4,18 @@ A high-contrast theme for OLED Displays based on the stunning images by [h heyer
 
 ## Requirements
 
+This theme uses [Nix](https://nixos.org/nix/) to load its dependencies. You must install the required fonts manually.
+
+Fonts:
+* [Fira Code](https://github.com/tonsky/FiraCode)
+* [Font Awesome 5](https://fontawesome.com/)
+
+Programs:
 * Kitty
 * Polybar
 * Compton
 * LeftWM
 * Fish
-* Font Awesome 5
-* Fira Code
 
 ## Screenshots
 
