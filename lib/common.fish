@@ -32,3 +32,11 @@ function startPolybar -a config
   # TODO: dynamic
   env MONITOR=eDP-1-1 polybar -c $config mainbar &
 end
+
+function xresourcesApply -a config
+  xrdb -merge $config
+end
+
+function xresourcesRemove -a config
+  xrdb -remove $config
+end

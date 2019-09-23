@@ -11,4 +11,5 @@ leftwmLoadTheme --hook $themeDir/down --theme $themeDir/theme.toml
 startCompton $themeDir/compton.config
 startPolybar $themeDir/polybar.config
 themeKitty $themeDir/kitty/kitty.config
+xresourcesApply $themeDir/xresources
 setBackground --color black --mode fill $themeDir/assets/pacto-visual-cWOzOnSoh6Q-unsplash.jpg

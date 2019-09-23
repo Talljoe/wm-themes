@@ -8,6 +8,7 @@ source $themeDir/../../lib/leftwm.fish
 
 setBackground --color black --mode center $themeDir/assets/down.png
 
+xresourcesRemove $themeDir/xresources
 leftwmUnloadTheme
 
 pkill compton
