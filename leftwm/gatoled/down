@@ -1,0 +1,10 @@
+#!/usr/bin/env fish
+
+set scriptDir (string replace -r "^\." (pwd) (dirname (readlink -m (status -f))))
+
+feh -B black --bg-tile $scriptDir/assets/down.png
+
+echo "UnloadTheme" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
+
+pkill compton 
+pkill polybar
